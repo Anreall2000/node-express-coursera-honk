@@ -5,13 +5,14 @@ const bodyParser = require('body-parser');
 
 const morgan = require('morgan');
 
-
+const dishRouter = require('./routes/dishRouter');
 
 const hostname = 'localhost';
 const port = 3000;
 
 const app = express();
 
+app.use('/dishes', dishRouter);
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
